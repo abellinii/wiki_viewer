@@ -1,0 +1,49 @@
+
+@media screen and (max-width:800px){
+#view{
+  left: 70%
+}
+
+
+}
+
+@media screen and (max-width:600px){
+
+
+  #page-material {
+    flex-direction: column;
+}
+
+#content {
+
+  
+
+  height:11vh;
+  width: 100vw;
+  border-right: 5px solid #2d2c2c;
+}
+
+#blocks {
+  width: 100vw;
+  padding:0;
+  flex-direction: row;
+}
+
+#linked-page {
+
+  
+ 
+  width:80vw;
+}
+
+.block{
+  font-size: 0.2rem;
+  width: 10%;
+  height:70%;
+  margin:0.5% 0.5%;
+}
+#view{
+  font-size: 1rem;
+  left: 80%;
+}
+}

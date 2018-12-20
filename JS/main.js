@@ -6,12 +6,43 @@ $(document).ready(function() {
   var k = 0;
   var kblock = "";
   var json = {};
-
-  var twitch = {
-    width: 970,
-    height: 650,
+  var lastChannel="";
+ 
+  
+    var twitch = {
+    width: 0,
+    height: 0,
     channel: ""
   };
+
+
+
+  var resizeTimer;
+
+$(window).on('resize', function(e) {
+
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(function() {
+
+    
+ 
+ if(window.innerWidth <600){
+ twitch.width = window.innerWidth ;
+   twitch.height= window.innerHeight  ;
+}else{
+    twitch.width = window.innerWidth * 0.77;
+    twitch.height= window.innerHeight * 0.77 ;
+}
+
+$('#linked-page').empty();
+openTwitch(); 
+  }, 250);
+
+});
+
+
+
+
   //List of Twitch accounts to pull data from.
   var twitchAccounts = [
     "ESL_SC2",
@@ -49,7 +80,7 @@ $(document).ready(function() {
             k +
             '"><img class="image" src=' +
             data.logo +
-            ' height="50px" width="50px">' +
+            ' >' +
             '<p class="name">' +
             data.name.toUpperCase() +
             "</p></div><br>"
@@ -60,10 +91,10 @@ $(document).ready(function() {
         console.log(kblock);
         kblock = "#block" + k;
         if (myObj.stream === null) {
-          $(kblock).css("background-color", "#E86C60");
+          $(kblock).css("background-color", "#6441a5");
           $(kblock).addClass("offline");
         } else {
-          $(kblock).css("background-color", "#2ECC71");
+          $(kblock).css("background-color", "#82a541");
           $(kblock).addClass("online");
         }
         // Keep track of the channel ID for manipulation.
@@ -80,10 +111,18 @@ $(document).ready(function() {
     urlLink = page[this.id.toString().substring(5)];
     //window.open(urlLink)
     var a = "#" + this.id;
-    $("#linked-page").empty();
+   $('#linked-page').empty();
     twitch.channel = urlLink.substring(22);
+    lastChannel = twitch.channel;
+     if(window.innerWidth <600){
+ twitch.width = window.innerWidth ;
+   twitch.height= window.innerHeight  ;
+}else{
+    twitch.width = window.innerWidth * 0.77;
+    twitch.height= window.innerHeight * 0.77 ;
+}
     openTwitch();
-    console.log(twitch.channel);
+    
     $(".block").css("margin-left", "3px");
     $(a).css("margin-left", "25px");
   });
@@ -94,11 +133,11 @@ $(document).ready(function() {
     $("#bo").css("text-shadow", "none");
     $(".online").show();
     $(".offline").hide();
-    $("#linked-page").empty();
+    
     $(".block").css("margin-left", "3px");
     $("#on").css(
       "text-shadow",
-      " 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #00ffff , 0 0 70px #00ffff , 0 0 80px #00ffff , 0 0 100px #00ffff "
+      " 0 0 20px #82a54#82a541"
     );
   });
 
@@ -107,11 +146,11 @@ $(document).ready(function() {
     $("#bo").css("text-shadow", "none");
     $(".online").hide();
     $(".offline").show();
-    $("#linked-page").empty();
+   
     $(".block").css("margin-left", "3px");
     $("#off").css(
       "text-shadow",
-      " 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #00ffff , 0 0 70px #00ffff , 0 0 80px #00ffff , 0 0 100px #00ffff "
+       " 0 0 20px #82a541, 0 0 20px #82a541"
     );
   });
 
@@ -120,11 +159,11 @@ $(document).ready(function() {
     $("#on").css("text-shadow", "none");
     $(".online").show();
     $(".offline").show();
-    $("#linked-page").empty();
+    
     $(".block").css("margin-left", "3px");
     $("#bo").css(
       "text-shadow",
-      " 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #00ffff , 0 0 70px #00ffff , 0 0 80px #00ffff , 0 0 100px #00ffff "
+       " 0 0 20px #82a541, 0 0 20px #82a541"
     );
   });
 
