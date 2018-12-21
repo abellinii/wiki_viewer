@@ -5,46 +5,35 @@
   <meta charset="UTF-8">
   <title>Document</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://embed.twitch.tv/embed/v1.js"></script>
+
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
 
 <link href="https://fonts.googleapis.com/css?family=Francois+One|Special+Elite" rel="stylesheet">
 
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-<div>
-    <div id="header">
-    <div id='logo'><a href='#body'><img src='https://lh3.googleusercontent.com/MlCdXOo-LwvdonV-_7caLOkqNW_4XY40eo0lnauCqsPLoXznh9_JOZdaIjEefeRMosueXDhBNYUq5WIuxatz6GIhBGZhHVINVIlMQQKEv6g-z3l_afiJQIHtRYtmm5rcxsZTYR21lw=w2400' alt='Twitch Logo' width=200px height=112.5px></a>
-      <p id='view'>VIEWER</p>
+  <div id='page' class='container'>
+    <div id="form" class="container">
+     Search Wikipedia
+      <form>
+        
+          <input id='search' class="input ">
+        <div id="btn" ><a class='text1'href=#><i class=" fas fa-arrow-circle-right"></i></a></div>
+        <div id="randombtn" ><a class="text" href=#><i class="fas fa-random"></i></a></div>
+        </form>
+      
+
     </div>
-
-</div>
-    <div id='page-material'>
-    <div id="content">
-      <div id='online-buttons'>
-        <div id='online' class='top-buttons'>
-          <p class='btn-text' id='on'>Online</p>
-        </div>
-
-        <div id='offline' class='top-buttons'>
-          <p class='btn-text' id='off'>Offline</p>
-        </div>
-
-        <div id='both' class='top-buttons'>
-          <p class='btn-text' id='bo'>Both</p>
-        </div>
-
+    <div id="results" class="">
+      <img class='closebutton' src='https://lh3.googleusercontent.com/MUi_08PPx460SNTCqJUPXg94Vu9HfkA9fyM3umUZM17_yZISjaDEfs-kd1xCy7iUwL4IepOqAFwk8VBI4aUZDXJTG2N7rC9rGJPfeGBXuiGqmcy3KmA84KG7rY9sHrV_QleOGTy0CA=s50-p-k'></img>
+      <div id="addedResults">
       </div>
-      <div id="blocks"></div>
-    </div>
-    <div id='linked-page'>
-      <p class='placeholder'>
-        <-- Pick a channel</p>
 
     </div>
   </div>
-  <footer></footer>
-  <script src='./JS/main.js'></script> 
+<script src='./JS/main.js'></script>
 </body>
 </html>
