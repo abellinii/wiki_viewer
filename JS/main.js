@@ -20,30 +20,48 @@ $(document).ready(function() {
       //Iterate through the wiki data and if it contains the field add to the new block div, if not not continue to the next field
       for (var i = 0; i < 9; i++) {
         $("#addedResults").append(
+
           "<div class =' block' id = 'block" + i + "'" + ">" + "</div>" + "<br>"
         );
+
+
 
         var result = "#block" + i;
         var text = "#" + result + "text";
         var image = "#" + result + "image";
+         var newResult = "#smlblock" + i;
 
-        $(result).append(
+        $(result).append("<div class='smlblock' id='smlblock" + i + "'></div>");
+
+
+        $(newResult).append(
+          
           "<h1 class='title'>" + data["query"]["pages"][wikiPage[i]]["title"] + "</h1>"
         );
 
         if (data["query"]["pages"][wikiPage[i]]["description"] != undefined)
-          $(result).append(
+          $(newResult).append(
             "<p class='description'>" + data["query"]["pages"][wikiPage[i]]["description"] + "</p>"
           );
 
         if (data["query"]["pages"][wikiPage[i]]["extract"] != undefined) {
-          $(result).append(
+          $(newResult).append(
               data["query"]["pages"][wikiPage[i]]["extract"] 
           );
         }
+          if(data["query"]["pages"][wikiPage[i]]["original"] != undefined){
+            console.log('one');
+          
 
-        // page.push(wiki + data["query"]["pages"][wikiPage[i]]["title"]);
+          $(result).append(
+          
+         "<div class='divImg'><img src='" + data["query"]["pages"][wikiPage[i]]["original"]["source"] + "'></div>"
+        );
+        
+        }
+        page.push(wiki + data["query"]["pages"][wikiPage[i]]["title"]);
       }
+
     });
   }
 
@@ -51,7 +69,7 @@ $(document).ready(function() {
   $("#btn").on("click", function() {
     searchTerm = $("#search").val();
     url =
-      "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=pageimages%7Cdescription%7Cextracts&indexpageids=1&pageids=10&generator=search&piprop=thumbnail%7Cname&exsentences=1&exintro=1&excontinue=2&gsrsearch=" +
+      "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=pageimages%7Cdescription%7Cextracts&indexpageids=1&pageids=10&generator=search&piprop=original%7Cname&exsentences=1&exintro=1&excontinue=2&gsrsearch=" +
       searchTerm +
       "&callback=?";
 
@@ -79,6 +97,7 @@ $(document).ready(function() {
   $("#results").on("click", ".block", function() {
     urlLink = page[this.id.toString().substring(5)];
     window.open(urlLink);
+    console.log(urlLink)
   });
 
   //When a result is clicked determine its ID

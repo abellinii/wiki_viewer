@@ -4,12 +4,22 @@
 #form{
   width: 60%;
 }
+
+.smlblock p{
+	padding:1% 0; 
+}
 }
 
 @media screen and (max-width:600px){
 
 #form{
   width: 80%;
+}
+.smlblock p{
+	padding:10% 0; 
+}
+.closebutton{
+	margin-left:80%;
 }
 
 }
